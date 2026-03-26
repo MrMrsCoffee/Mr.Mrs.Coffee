@@ -153,29 +153,39 @@
 
         header .container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+        }
+
+        @media (min-width: 993px) {
+            header .container {
+                justify-content: space-between;
+            }
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             color: var(--text);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .logo img {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             object-fit: cover;
             background: var(--cream-light);
         }
 
         @media (min-width: 768px) {
+            .logo {
+                font-size: 1.4rem;
+                gap: 10px;
+            }
             .logo img {
                 width: 44px;
                 height: 44px;
@@ -204,31 +214,8 @@
             color: var(--terracotta);
         }
 
-        .burger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 8px;
-            margin: -8px;
-            touch-action: manipulation;
-        }
-
-        .burger:active span {
-            background: var(--terracotta);
-        }
-
-        .burger span {
-            width: 24px;
-            height: 2px;
-            background: var(--text);
-            transition: 0.3s;
-        }
-
         @media (max-width: 992px) {
-            .burger {
-                display: flex;
-            }
+            nav { display: none; }
         }
 
         /* Hero - Full Width Image */
@@ -1569,22 +1556,6 @@
             touch-action: manipulation;
         }
 
-        .mobile-menu a:active {
-            color: var(--terracotta);
-            transform: scale(0.97);
-        }
-
-        .mobile-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--text);
-            padding: 10px;
-            touch-action: manipulation;
-        }
-
         /* Responsive */
         @media (max-width: 992px) {
             .hero-content { text-align: center; padding: 0 20px 120px; }
@@ -1661,22 +1632,8 @@
                 <a href="#reviews">Отзывы</a>
                 <a href="#contacts">Контакты</a>
             </nav>
-            <div class="burger" onclick="toggleMobile()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </header>
-
-    <div class="mobile-menu" id="mobileMenu">
-        <span class="mobile-close" onclick="toggleMobile()">×</span>
-        <a href="#menu" onclick="toggleMobile()">Меню</a>
-        <a href="#benefits" onclick="toggleMobile()">Почему мы</a>
-        <a href="#gallery" onclick="toggleMobile()">Атмосфера</a>
-        <a href="#reviews" onclick="toggleMobile()">Отзывы</a>
-        <a href="#contacts" onclick="toggleMobile()">Контакты</a>
-    </div>
 
     <!-- Hero - Full Width -->
     <section class="hero">
@@ -2221,11 +2178,6 @@
             }, 1500);
         });
 
-        // Mobile menu
-        function toggleMobile() {
-            document.getElementById('mobileMenu').classList.toggle('active');
-        }
-
         // Menu tabs
         function switchTab(tab) {
             document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
@@ -2308,3 +2260,4 @@
 
 </body>
 </html>
+
